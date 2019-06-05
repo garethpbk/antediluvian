@@ -24,17 +24,22 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         concurrentRequests: 10,
-        includedRoutes: [`**/media`, `**/posts`, `**/*/*/adl_config`],
+        includedRoutes: [
+          `**/*/*/media`,
+          `**/*/*/posts`,
+          `**/adl_menu`,
+          `**/*/*/adl_config`,
+        ],
       },
     },
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        typeName: `WPGraphQL`,
-        fieldName: `wpgraphql`,
-        url: `https://catacombs.gareth.cool/graphql`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-graphql`,
+    //   options: {
+    //     typeName: `WPGraphQL`,
+    //     fieldName: `wpgraphql`,
+    //     url: `https://catacombs.gareth.cool/graphql`,
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

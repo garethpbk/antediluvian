@@ -5,9 +5,9 @@ import { Banner, Layout, Nav, SEO } from '../components';
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title="About" />
     <Banner />
-    <h1>Home</h1>
+    <h1>About</h1>
     <Nav />
   </Layout>
 );
