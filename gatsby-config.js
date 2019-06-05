@@ -14,6 +14,27 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: `catacombs.gareth.cool`,
+        protocol: `https`,
+        hostingWPCOM: false,
+        useACF: true,
+        verboseOutput: false,
+        perPage: 100,
+        concurrentRequests: 10,
+        includedRoutes: [`**/media`, `**/posts`, `**/*/*/adl_config`],
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `WPGraphQL`,
+        fieldName: `wpgraphql`,
+        url: `https://catacombs.gareth.cool/graphql`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
