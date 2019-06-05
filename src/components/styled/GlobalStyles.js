@@ -1,7 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 // import theme helpers
-import { getColor } from "../../util/theme";
+import { getColor } from '../../util/theme';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -9,20 +9,23 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html, body {
-    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-family: Lato, Arial, Helvetica, sans-serif;
 
     margin: 0;
     padding: 0;
   }
 
   body {
-    background-color: ${getColor("medGreen")};
+    background-color: ${getColor('medGreen')};
   }
 
   html {
     font-size: 10px;
   }
 
+  h1 {
+    font-family: Cinzel, serif;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -30,12 +33,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    color: ${getColor("black")};
+    color: ${getColor('black')};
     font-size: 1.6rem;
   }
 
   input, label, select {
-    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-family: Lato, Arial, Helvetica, sans-serif;
   }
 `;
 

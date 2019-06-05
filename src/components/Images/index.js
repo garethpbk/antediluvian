@@ -1,3 +1,4 @@
-import Rlyeh from "./Rlyeh";
+import Rlyeh from './Rlyeh';
+import RlyehBg from './RlyehBg';
 
-export { Rlyeh };
+export { Rlyeh, RlyehBg };

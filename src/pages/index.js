@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 // import components
-import { Banner, Layout, SEO } from "../components";
+import { Banner, Layout, SEO } from '../components';
 
 const IndexPage = () => (
   <Layout>

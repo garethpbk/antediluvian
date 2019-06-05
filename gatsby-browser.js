@@ -5,3 +5,12 @@
  */
 
 // You can delete this file if you're not using it
+
+export const onClientEntry = () => {
+  import(`typeface-cinzel`);
+  import(`typeface-lato`);
+
+  if (typeof window.IntersectionObserver === 'undefined') {
+    import(`intersection-observer`);
+  }
+};

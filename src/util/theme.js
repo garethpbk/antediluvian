@@ -1,22 +1,33 @@
-import { rgba } from "polished";
+import { rgba } from 'polished';
 
 const theme = {
   colors: {
     // greens
-    medGreen: "#a7b09d",
-    darkGreen: "#829171",
+    medGreen: '#a7b09d',
+    darkGreen: '#829171',
 
     // monotones
-    black: "#27262a",
-    white: "#ffffff",
+    black: '#27262a',
+    white: '#ffffff',
   },
 
   breakpoints: {
-    xs: "0px",
-    sm: "576px",
-    md: "768px",
-    lg: "992px",
-    xl: "1200px",
+    xs: '0px',
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px',
+  },
+
+  typography: {
+    weights: {
+      thin: '100',
+      light: '300',
+      regular: '400',
+      medium: '500',
+      bold: '700',
+      black: '900',
+    },
   },
 };
 
