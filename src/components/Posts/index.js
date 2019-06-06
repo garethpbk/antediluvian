@@ -10,19 +10,21 @@ import { PostsWrapper } from './styled';
 const Posts = () => {
   const data = useStaticQuery(graphql`
     query GET_ADL_POSTS_QUERY {
-      allWordpressPost(filter: { categories: { eq: 4 } }) {
+      allWordpressPost(
+        filter: { categories: { eq: 4 } }
+        sort: { fields: id, order: ASC }
+      ) {
         edges {
           node {
-            id
-            title
             date(formatString: "MMMM Do, YYYY")
+            id
+            path
+            title
           }
         }
       }
     }
   `);
-
-  console.log(data);
 
   return (
     <PostsWrapper aria-label="posts">

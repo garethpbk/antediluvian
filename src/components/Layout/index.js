@@ -1,11 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
-import { ThemeProvider } from "styled-components";
-import theme from "../../util/theme";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
+import { ThemeProvider } from 'styled-components';
+import theme from '../../util/theme';
 
 // import styled components
-import { GlobalStyles } from "../styled";
+import { GlobalStyles, Grid, PageLayout } from '../styled';
+import Banner from '../Banner';
+import Nav from '../Nav';
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -22,7 +24,18 @@ const Layout = ({ children }) => (
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyles />
-          <main>{children}</main>
+          <Banner />
+          <Nav />
+          <main>
+            <Grid>
+              <PageLayout>
+                {children}
+                <div style={{ backgroundColor: 'steelblue', height: '500px' }}>
+                  Sidebar
+                </div>
+              </PageLayout>
+            </Grid>
+          </main>
           <footer>© {new Date().getFullYear()}</footer>
         </>
       </ThemeProvider>

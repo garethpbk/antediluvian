@@ -1,13 +1,12 @@
 import React from 'react';
 
 // import components
-import { Banner, Layout, Nav, SEO } from '../components';
+import { Layout, Posts, SEO } from '../components';
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Banner />
-    <Nav />
+    <Posts />
   </Layout>
 );
 

@@ -8,6 +8,15 @@ const PostEntryContent = styled.div`
 
   padding: 15px 0;
 
+  a {
+    color: ${getColor('black')};
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   h2 {
     font-size: 3rem;
     font-weight: ${getFontWeight('regular')};
