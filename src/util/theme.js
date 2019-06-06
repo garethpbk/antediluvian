@@ -8,6 +8,7 @@ const theme = {
 
     // monotones
     black: '#27262a',
+    grey: '#eeeeee',
     white: '#ffffff',
   },
 

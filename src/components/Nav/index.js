@@ -1,6 +1,10 @@
 import React from 'react';
 import { graphql, Link, StaticQuery } from 'gatsby';
 
+// import styled components
+import { Grid } from '../styled';
+import { NavContent, NavItem, NavList, NavWrapper } from './styled';
+
 const Nav = () => (
   <StaticQuery
     query={graphql`
@@ -17,15 +21,17 @@ const Nav = () => (
       const menuItems = data.allWordpressAdlMenu.nodes;
 
       return (
-        <nav>
-          <ul>
-            {menuItems.map(item => (
-              <li key={item.title}>
-                <Link to={item.url}>{item.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <NavWrapper>
+          <Grid>
+            <NavList>
+              {menuItems.map(item => (
+                <NavItem key={item.title}>
+                  <Link to={item.url}>{item.title.toUpperCase()}</Link>
+                </NavItem>
+              ))}
+            </NavList>
+          </Grid>
+        </NavWrapper>
       );
     }}
   />
