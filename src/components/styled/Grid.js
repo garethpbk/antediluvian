@@ -1,26 +1,26 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components';
 
 // import theme helpers
-import { getBreakpoint } from "../../util/theme";
+import { getBreakpoint } from '../../util/theme';
 
 const Grid = styled.div`
   margin: 0 auto;
 
   width: 100%;
 
-  @media (min-width: ${getBreakpoint("sm")}) {
+  @media (min-width: ${getBreakpoint('sm')}) {
     width: 560px;
   }
 
-  @media (min-width: ${getBreakpoint("md")}) {
+  @media (min-width: ${getBreakpoint('md')}) {
     width: 752px;
   }
 
-  @media (min-width: ${getBreakpoint("lg")}) {
+  @media (min-width: ${getBreakpoint('lg')}) {
     width: 976px;
   }
 
-  @media (min-width: ${getBreakpoint("xl")}) {
+  @media (min-width: ${getBreakpoint('xl')}) {
     width: 1184px;
   }
 `;

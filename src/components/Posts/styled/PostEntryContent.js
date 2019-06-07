@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 // import theme helpers
 import { getColor, getFontWeight } from '../../../util/theme';

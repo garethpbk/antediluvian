@@ -12,13 +12,21 @@ const drawFeaturedStoryFields = fields => (
   </>
 );
 
-const PostPage = ({ acf = false, content, date, featured = false, title }) => (
+const PostPage = ({
+  acf = false,
+  content,
+  date,
+  extra = false,
+  featured = false,
+  title,
+}) => (
   <PostPageWrapper aria-label="post-content">
     <PostPageContent>
       <h1 dangerouslySetInnerHTML={{ __html: title }} />
       {date ? <h2>{date}</h2> : null}
       {featured ? drawFeaturedStoryFields(acf) : null}
       <div dangerouslySetInnerHTML={{ __html: content }} />
+      {extra ? extra : null}
     </PostPageContent>
   </PostPageWrapper>
 );

@@ -3,7 +3,7 @@ import { useReducer } from 'react';
 // import validators
 import initializeValidators from '../util/validators';
 
-const validators = initalizeValidators();
+const validators = initializeValidators();
 
 const checkIfError = (validator, value) => {
   if (!validator) return false;

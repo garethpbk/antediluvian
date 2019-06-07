@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 const PageLayout = styled.div`
   padding: 25px 0 0 0;

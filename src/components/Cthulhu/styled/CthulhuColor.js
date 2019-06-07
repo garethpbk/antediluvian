@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components/macro';
+import styled, { keyframes } from 'styled-components';
 
 // import sprites
 import cthulhuColorSprites from '../../../images/cthulhu-color-sprites.png';

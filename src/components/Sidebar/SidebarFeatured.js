@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 
 // import styled components
