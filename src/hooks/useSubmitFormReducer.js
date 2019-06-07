@@ -5,21 +5,21 @@ import initializeValidators from '../util/validators';
 
 const validators = initializeValidators();
 
-const checkIfError = (validator, value) => {
+const checkIfError = (validator, value, maxLength) => {
   if (!validator) return false;
 
-  return !validators[validator](value);
+  return !validators[validator](value, maxLength);
 };
 
 function submitFormReducer(state, action) {
-  const { type, name, validator, value } = action;
+  const { maxLength, name, type, validator, value } = action;
 
   switch (type) {
     case 'handleChange':
       return {
         ...state,
         [name]: {
-          error: checkIfError(validator, value),
+          error: checkIfError(validator, value, maxLength),
           touched: true,
           value,
         },

@@ -5,6 +5,7 @@
     "type": "text",
     "error": "Please enter your name using only letters, numbers, spaces, and dashes",
     "validator": "alphaNumericValidator",
+    "maxLength": 0,
     "required": true
   },
   {
@@ -13,6 +14,7 @@
     "type": "text",
     "error": "Please enter a valid email address",
     "validator": "emailValidator",
+    "maxLength": 0,
     "required": true
   },
   {
@@ -21,6 +23,7 @@
     "type": "textarea",
     "error": "Please enter a bio of 250 words or less",
     "validator": "lengthValidator",
+    "maxLength": 250,
     "required": false
   },
   {
@@ -29,6 +32,7 @@
     "type": "text",
     "error": "Please enter the title of your submission",
     "validator": "lengthValidator",
+    "maxLength": 0,
     "required": true
   },
   {
@@ -37,6 +41,7 @@
     "type": "textarea",
     "error": "Please enter a submission of 1000 words or less",
     "validator": "lengthValidator",
+    "maxLength": 1000,
     "required": false
   }
 ]

@@ -6,6 +6,9 @@ const theme = {
     medGreen: '#a7b09d',
     darkGreen: '#829171',
 
+    // reds
+    medRed: '#f44242',
+
     // monotones
     black: '#27262a',
     grey: '#eeeeee',
@@ -25,7 +28,7 @@ const theme = {
       thin: '100',
       light: '300',
       regular: '400',
-      medium: '500',
+      medium: '600',
       bold: '700',
       black: '900',
     },
