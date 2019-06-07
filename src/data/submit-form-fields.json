@@ -1,0 +1,42 @@
+[
+  {
+    "name": "fullName",
+    "label": "Your Name",
+    "type": "text",
+    "error": "Please enter your name using only letters, numbers, spaces, and dashes",
+    "validator": "alphaNumericValidator",
+    "required": true
+  },
+  {
+    "name": "emailAddress",
+    "label": "Your Email Address",
+    "type": "text",
+    "error": "Please enter a valid email address",
+    "validator": "emailValidator",
+    "required": true
+  },
+  {
+    "name": "authorBio",
+    "label": "Your Brief Bio (optional)",
+    "type": "textarea",
+    "error": "Please enter a bio of 250 words or less",
+    "validator": "lengthValidator",
+    "required": false
+  },
+  {
+    "name": "submissionTitle",
+    "label": "Title of Submission",
+    "type": "text",
+    "error": "Please enter the title of your submission",
+    "validator": "lengthValidator",
+    "required": true
+  },
+  {
+    "name": "submissionContent",
+    "label": "Submission Content (< 1000 words)",
+    "type": "textarea",
+    "error": "Please enter a submission of 1000 words or less",
+    "validator": "lengthValidator",
+    "required": false
+  }
+]

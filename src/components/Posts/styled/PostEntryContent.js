@@ -10,11 +10,6 @@ const PostEntryContent = styled.div`
 
   a {
     color: ${getColor('black')};
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   h2 {

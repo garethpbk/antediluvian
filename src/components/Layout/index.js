@@ -9,6 +9,7 @@ import { GlobalStyles, Grid, PageLayout } from '../styled';
 import Banner from '../Banner';
 import Footer from '../Footer';
 import Nav from '../Nav';
+import Sidebar from '../Sidebar';
 
 const Layout = ({ activePage, children }) => (
   <StaticQuery
@@ -31,9 +32,7 @@ const Layout = ({ activePage, children }) => (
             <Grid>
               <PageLayout>
                 {children}
-                <div style={{ backgroundColor: 'steelblue', height: '500px' }}>
-                  Sidebar
-                </div>
+                <Sidebar />
               </PageLayout>
             </Grid>
           </main>

@@ -11,7 +11,6 @@ const NavItem = styled.li`
 
   a {
     color: ${getColor('medGreen')};
-    font-size: 1.8rem;
     text-decoration: none;
 
     display: block;

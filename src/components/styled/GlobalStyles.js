@@ -28,9 +28,20 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  a, li, p {
+    font-size: 1.8rem;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   p {
     color: ${getColor('black')};
-    font-size: 1.6rem;
   }
 
   input, label, select {
