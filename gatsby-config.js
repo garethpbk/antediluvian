@@ -26,6 +26,7 @@ module.exports = {
         concurrentRequests: 10,
         includedRoutes: [
           `**/*/*/media`,
+          `**/*/*/pages`,
           `**/*/*/posts`,
           `**/adl_menu`,
           `**/*/*/adl_config`,

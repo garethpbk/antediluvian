@@ -7,7 +7,7 @@ const PostPage = ({ content, date, title }) => (
   <PostPageWrapper aria-label="post-content">
     <PostPageContent>
       <h1 dangerouslySetInnerHTML={{ __html: title }} />
-      <h2>{date}</h2>
+      {date ? <h2>{date}</h2> : null}
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </PostPageContent>
   </PostPageWrapper>

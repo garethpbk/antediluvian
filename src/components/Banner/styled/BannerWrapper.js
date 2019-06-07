@@ -43,6 +43,7 @@ const BannerWrapper = styled(RlyehBg)`
   }
 
   h1 {
+    font-family: Cinzel, serif;
     font-size: 5rem;
     letter-spacing: 1rem;
     text-transform: uppercase;

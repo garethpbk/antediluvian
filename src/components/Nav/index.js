@@ -5,7 +5,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import { Grid } from '../styled';
 import { NavItem, NavList, NavWrapper } from './styled';
 
-const Nav = () => {
+const Nav = ({ activePage }) => {
   const data = useStaticQuery(graphql`
     query ADL_MENU_ITEMS_QUERY {
       allWordpressAdlMenu {
@@ -23,11 +23,16 @@ const Nav = () => {
     <NavWrapper>
       <Grid>
         <NavList>
-          {menuItems.map(item => (
-            <NavItem key={item.title}>
-              <Link to={item.url}>{item.title.toUpperCase()}</Link>
-            </NavItem>
-          ))}
+          {menuItems.map(item => {
+            return (
+              <NavItem
+                key={item.title}
+                active={item.title === activePage ? true : false}
+              >
+                <Link to={item.url}>{item.title.toUpperCase()}</Link>
+              </NavItem>
+            );
+          })}
         </NavList>
       </Grid>
     </NavWrapper>

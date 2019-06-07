@@ -4,10 +4,10 @@ import { graphql, useStaticQuery } from 'gatsby';
 // import components
 import { Layout, PostPage, SEO } from '../components';
 
-const AboutPage = () => {
+const ArchivePage = () => {
   const data = useStaticQuery(graphql`
-    query GET_ABOUT_PAGE_QUERY {
-      wordpressPage(slug: { eq: "about" }) {
+    query GET_ARCHIVE_PAGE_QUERY {
+      wordpressPage(slug: { eq: "archive" }) {
         content
         title
       }
@@ -15,8 +15,8 @@ const AboutPage = () => {
   `);
 
   return (
-    <Layout activePage="about">
-      <SEO title="About" />
+    <Layout activePage="archive">
+      <SEO title="Archive" />
       <PostPage
         content={data.wordpressPage.content}
         title={data.wordpressPage.title}
@@ -25,4 +25,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default ArchivePage;

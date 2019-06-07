@@ -7,9 +7,10 @@ import theme from '../../util/theme';
 // import styled components
 import { GlobalStyles, Grid, PageLayout } from '../styled';
 import Banner from '../Banner';
+import Footer from '../Footer';
 import Nav from '../Nav';
 
-const Layout = ({ children }) => (
+const Layout = ({ activePage, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -25,7 +26,7 @@ const Layout = ({ children }) => (
         <>
           <GlobalStyles />
           <Banner />
-          <Nav />
+          <Nav activePage={activePage} />
           <main>
             <Grid>
               <PageLayout>
@@ -36,7 +37,7 @@ const Layout = ({ children }) => (
               </PageLayout>
             </Grid>
           </main>
-          <footer>© {new Date().getFullYear()}</footer>
+          <Footer />
         </>
       </ThemeProvider>
     )}
