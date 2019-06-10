@@ -6,7 +6,8 @@
     "error": "Please enter your name using only letters, numbers, spaces, and dashes",
     "validator": "alphaNumericValidator",
     "maxLength": 0,
-    "required": true
+    "required": true,
+    "options": []
   },
   {
     "name": "emailAddress",
@@ -15,7 +16,8 @@
     "error": "Please enter a valid email address",
     "validator": "emailValidator",
     "maxLength": 0,
-    "required": true
+    "required": true,
+    "options": []
   },
   {
     "name": "authorBio",
@@ -24,7 +26,8 @@
     "error": "Please enter a bio of 250 words or less",
     "validator": "lengthValidator",
     "maxLength": 250,
-    "required": false
+    "required": false,
+    "options": []
   },
   {
     "name": "submissionTitle",
@@ -33,7 +36,21 @@
     "error": "Please enter the title of your submission",
     "validator": "lengthValidator",
     "maxLength": 0,
-    "required": true
+    "required": true,
+    "options": []
+  },
+  {
+    "name": "submissionType",
+    "label": "Method of Submission",
+    "type": "radio",
+    "error": "Please select a method of submission",
+    "validator": "",
+    "maxLength": 0,
+    "required": true,
+    "options": [
+      { "name": "viaForm", "label": "Include Here (< 1000 words)" },
+      { "name": "viaUpload", "label": "Upload File" }
+    ]
   },
   {
     "name": "submissionContent",
@@ -42,6 +59,17 @@
     "error": "Please enter a submission of 1000 words or less",
     "validator": "lengthValidator",
     "maxLength": 1000,
-    "required": false
+    "required": false,
+    "options": []
+  },
+  {
+    "name": "submissionFile",
+    "label": "Upload Your Submission (.docx and .pdf allowed)",
+    "type": "file",
+    "error": "Please upload a .docx or .pdf file less than 5MB in size",
+    "validator": "",
+    "maxLength": 0,
+    "required": false,
+    "options": []
   }
 ]

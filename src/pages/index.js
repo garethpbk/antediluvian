@@ -4,7 +4,7 @@ import React from 'react';
 import { Layout, Posts, SEO } from '../components';
 
 const IndexPage = () => (
-  <Layout>
+  <Layout activePage="adl">
     <SEO title="Home" />
     <Posts />
   </Layout>

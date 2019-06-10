@@ -24,6 +24,60 @@ function submitFormReducer(state, action) {
           value,
         },
       };
+    case 'handleFileUpload':
+      if (!value) return { ...state };
+
+      console.log(value);
+
+      /**
+       * get filesize in MB and type of file
+       */
+      const fileSize = (value.size / 1024 / 1024).toFixed(4);
+      const fileType = value.type;
+
+      /**
+       * file too big?
+       */
+      if (fileSize > 5) {
+        return {
+          ...state,
+          submissionFile: {
+            ...state.submissionFile,
+            error: true,
+            touched: true,
+            value: '',
+          },
+        };
+      }
+
+      /**
+       * file not .pdf or .docx?
+       */
+      if (
+        fileType !== 'application/pdf' &&
+        fileType !==
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document' &&
+        fileType !== 'application/msword'
+      ) {
+        return {
+          ...state,
+          submissionFile: {
+            ...state.submissionFile,
+            error: true,
+            touched: true,
+            value: '',
+          },
+        };
+      }
+
+      return {
+        ...state,
+        submissionFile: {
+          ...state.submissionFile,
+          error: false,
+          touched: true,
+        },
+      };
     case 'addError':
       return {
         ...state,
@@ -63,6 +117,16 @@ function useSubmitFormReducer() {
       error: false,
       touched: false,
       value: '',
+    },
+    submissionFile: {
+      error: false,
+      touched: false,
+      value: '',
+    },
+    submissionType: {
+      error: false,
+      touched: false,
+      value: 'viaForm',
     },
   };
 
