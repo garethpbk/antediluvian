@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 // import hooks
@@ -43,6 +43,10 @@ const SubmitForm = () => {
   } = data;
 
   const [submitFormState, dispatch] = useSubmitFormReducer();
+  const [submittingState, setSubmittingState] = useState(false);
+  const [successfulSubmissionState, setSuccessfulSubmissionState] = useState(
+    false
+  );
 
   const drawTextField = field => {
     const { error, label, name, validator } = field;
@@ -115,7 +119,7 @@ const SubmitForm = () => {
   };
 
   const drawRadioField = field => {
-    const { error, label, name, options } = field;
+    const { label, name, options } = field;
 
     return (
       <SubmitFormField key={name}>
@@ -163,7 +167,6 @@ const SubmitForm = () => {
             name={name}
             id={name}
             accept=".doc, .docx, .pdf"
-            key={submitFormState[name].value}
             onChange={e =>
               dispatch({
                 type: 'handleFileUpload',
@@ -199,11 +202,82 @@ const SubmitForm = () => {
     });
   };
 
+  const submitForm = async e => {
+    e.preventDefault();
+
+    setSubmittingState(true);
+
+    const formErrors = checkForErrors();
+
+    if (formErrors.length > 0) {
+      setSubmittingState(false);
+      return;
+    }
+
+    await submitSubmission().then(res => {
+      console.log(res);
+      setSubmittingState(false);
+      setSuccessfulSubmissionState(true);
+    });
+  };
+
+  const checkForErrors = () => {
+    const submitFormStateErrors = Object.keys(submitFormState).filter(
+      key => submitFormState[key].required && submitFormState[key].error
+    );
+
+    return submitFormStateErrors;
+  };
+
+  const submitSubmission = async () => {
+    const url = 'http://localhost/antediluvian/mailer/mailer.php';
+
+    const formData = new FormData();
+
+    const submitFormStateToSend = Object.keys(submitFormState).reduce(
+      (obj, key) => {
+        obj[key] = submitFormState[key].value;
+        return obj;
+      },
+      {}
+    );
+
+    const serializedSubmitFormState = JSON.stringify(submitFormStateToSend);
+
+    formData.append('jsonData', serializedSubmitFormState);
+
+    if (submitFormState.submissionType.value === 'viaUpload') {
+      formData.append('uploadedFile', submitFormState.submissionFile.value);
+    }
+
+    const sendDataToPhp = await fetch(url, {
+      method: 'POST',
+      body: formData,
+    });
+
+    const phpResponse = await sendDataToPhp.text();
+
+    return phpResponse;
+  };
+
+  if (successfulSubmissionState)
+    return (
+      <SubmitFormWrapper>
+        <h3>Your submission has been received!</h3>
+      </SubmitFormWrapper>
+    );
+
   return (
     <SubmitFormWrapper>
       <form onSubmit={e => e.preventDefault()}>
         {drawFields(nodes)}
-        <SubmitFormSubmitButton>Submit To Antediluvian</SubmitFormSubmitButton>
+        {submittingState ? (
+          <div>Submitting...</div>
+        ) : (
+          <SubmitFormSubmitButton onClick={e => submitForm(e)}>
+            Submit To Antediluvian
+          </SubmitFormSubmitButton>
+        )}
       </form>
     </SubmitFormWrapper>
   );

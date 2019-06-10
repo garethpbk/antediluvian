@@ -27,8 +27,6 @@ function submitFormReducer(state, action) {
     case 'handleFileUpload':
       if (!value) return { ...state };
 
-      console.log(value);
-
       /**
        * get filesize in MB and type of file
        */
@@ -76,6 +74,7 @@ function submitFormReducer(state, action) {
           ...state.submissionFile,
           error: false,
           touched: true,
+          value,
         },
       };
     case 'addError':
