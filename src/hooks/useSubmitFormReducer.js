@@ -13,7 +13,6 @@ const checkIfError = (validator, value, maxLength) => {
 
 function submitFormReducer(state, action) {
   const { maxLength, name, type, validator, value } = action;
-
   switch (type) {
     case 'handleChange':
       return {
@@ -23,6 +22,46 @@ function submitFormReducer(state, action) {
           touched: true,
           value,
         },
+      };
+    case 'handleRadioChange':
+      if (value === 'viaForm') {
+        return {
+          ...state,
+          submissionType: {
+            ...state.submissionType,
+            touched: true,
+            value,
+          },
+          submissionContent: {
+            ...state.submissionContent,
+            required: true,
+          },
+          submissionFile: {
+            ...state.submissionFile,
+            required: false,
+          },
+        };
+      } else if (value === 'viaUpload') {
+        return {
+          ...state,
+          submissionType: {
+            ...state.submissionType,
+            touched: true,
+            value,
+          },
+          submissionContent: {
+            ...state.submissionContent,
+            required: false,
+          },
+          submissionFile: {
+            ...state.submissionFile,
+            required: true,
+          },
+        };
+      }
+
+      return {
+        ...state,
       };
     case 'handleFileUpload':
       if (!value) return { ...state };
@@ -78,11 +117,12 @@ function submitFormReducer(state, action) {
         },
       };
     case 'addError':
+      console.log(name);
       return {
         ...state,
         [name]: {
-          error: true,
           ...state[name],
+          error: true,
         },
       };
     default:
@@ -96,36 +136,43 @@ function useSubmitFormReducer() {
       error: false,
       touched: false,
       value: '',
+      required: true,
     },
     emailAddress: {
       error: false,
       touched: false,
       value: '',
+      required: true,
     },
     authorBio: {
       error: false,
       touched: false,
       value: '',
+      required: false,
     },
     submissionTitle: {
       error: false,
       touched: false,
       value: '',
+      required: true,
     },
     submissionContent: {
       error: false,
       touched: false,
       value: '',
+      required: true,
     },
     submissionFile: {
       error: false,
       touched: false,
       value: '',
+      required: false,
     },
     submissionType: {
       error: false,
       touched: false,
       value: 'viaForm',
+      required: true,
     },
   };
 

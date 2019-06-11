@@ -135,7 +135,7 @@ const SubmitForm = () => {
                 checked={submitFormState[name].value === option.name}
                 onChange={e =>
                   dispatch({
-                    type: 'handleChange',
+                    type: 'handleRadioChange',
                     name,
                     value: e.target.value,
                   })
@@ -207,6 +207,13 @@ const SubmitForm = () => {
 
     setSubmittingState(true);
 
+    const formUntouchedFields = checkForUntouchedFields();
+
+    if (formUntouchedFields.length > 0) {
+      setSubmittingState(false);
+      return;
+    }
+
     const formErrors = checkForErrors();
 
     if (formErrors.length > 0) {
@@ -221,9 +228,24 @@ const SubmitForm = () => {
     });
   };
 
+  const checkForUntouchedFields = () => {
+    const submitFormUntouchedFields = Object.keys(submitFormState).filter(
+      field =>
+        submitFormState[field].required && !submitFormState[field].touched
+    );
+
+    console.log(submitFormUntouchedFields);
+
+    submitFormUntouchedFields.map(field =>
+      dispatch({ type: 'addError', name: field })
+    );
+
+    return submitFormUntouchedFields;
+  };
+
   const checkForErrors = () => {
     const submitFormStateErrors = Object.keys(submitFormState).filter(
-      key => submitFormState[key].required && submitFormState[key].error
+      field => submitFormState[field].required && submitFormState[field].error
     );
 
     return submitFormStateErrors;
