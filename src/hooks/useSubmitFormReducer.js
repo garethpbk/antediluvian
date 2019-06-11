@@ -13,6 +13,7 @@ const checkIfError = (validator, value, maxLength) => {
 
 function submitFormReducer(state, action) {
   const { maxLength, name, type, validator, value } = action;
+
   switch (type) {
     case 'handleChange':
       return {
@@ -29,6 +30,7 @@ function submitFormReducer(state, action) {
           ...state,
           submissionType: {
             ...state.submissionType,
+            error: false,
             touched: true,
             value,
           },
@@ -46,6 +48,7 @@ function submitFormReducer(state, action) {
           ...state,
           submissionType: {
             ...state.submissionType,
+            error: false,
             touched: true,
             value,
           },
@@ -117,7 +120,6 @@ function submitFormReducer(state, action) {
         },
       };
     case 'addError':
-      console.log(name);
       return {
         ...state,
         [name]: {
@@ -170,7 +172,7 @@ function useSubmitFormReducer() {
     },
     submissionType: {
       error: false,
-      touched: false,
+      touched: true,
       value: 'viaForm',
       required: true,
     },

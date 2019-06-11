@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
+// import config
+import { MAILER_SCRIPT_URL } from '../../util/config';
+
 // import hooks
 import { useSubmitFormReducer } from '../../hooks';
 
@@ -222,7 +225,6 @@ const SubmitForm = () => {
     }
 
     await submitSubmission().then(res => {
-      console.log(res);
       setSubmittingState(false);
       setSuccessfulSubmissionState(true);
     });
@@ -233,8 +235,6 @@ const SubmitForm = () => {
       field =>
         submitFormState[field].required && !submitFormState[field].touched
     );
-
-    console.log(submitFormUntouchedFields);
 
     submitFormUntouchedFields.map(field =>
       dispatch({ type: 'addError', name: field })
@@ -252,7 +252,7 @@ const SubmitForm = () => {
   };
 
   const submitSubmission = async () => {
-    const url = 'http://localhost/antediluvian/mailer/mailer.php';
+    const url = MAILER_SCRIPT_URL;
 
     const formData = new FormData();
 
@@ -295,7 +295,7 @@ const SubmitForm = () => {
         <strong>Form Submissions</strong>
       </p>
       <SubmitFormWrapper id="submission-form">
-        <form onSubmit={e => e.preventDefault()}>
+        <form>
           {drawFields(nodes)}
           {submittingState ? (
             <div>Submitting...</div>

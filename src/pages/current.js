@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 // import components
-import { Layout, PostPage, SEO } from '../components';
+import { CurrentIssue, Layout, PostPage, SEO } from '../components';
 
 const CurrentPage = () => {
   const data = useStaticQuery(graphql`
@@ -20,6 +20,7 @@ const CurrentPage = () => {
       <PostPage
         content={data.wordpressPage.content}
         title={data.wordpressPage.title}
+        extra={<CurrentIssue />}
       />
     </Layout>
   );

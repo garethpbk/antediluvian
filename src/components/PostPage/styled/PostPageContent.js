@@ -13,6 +13,11 @@ const PostPageContent = styled.div`
     border-bottom: 1px solid ${getColor('black')};
   }
 
+  a {
+    color: ${getColor('black')};
+    font-weight: ${getFontWeight('medium')};
+  }
+
   h2 {
     font-size: 3rem;
     font-style: italic;

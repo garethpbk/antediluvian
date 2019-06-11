@@ -6,6 +6,8 @@ const SubmitFormUploadWrapper = styled.div`
 
   input {
     padding: 25px 0;
+
+    width: 100%;
   }
 `;
 
