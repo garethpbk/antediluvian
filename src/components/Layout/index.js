@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../../util/theme';
 
 // import styled components
-import { GlobalStyles, Grid, PageLayout } from '../styled';
+import { BannerAndNavWrapper, GlobalStyles, Grid, PageLayout } from '../styled';
 import Banner from '../Banner';
 import Footer from '../Footer';
 import Nav from '../Nav';
@@ -26,8 +26,10 @@ const Layout = ({ activePage, children }) => (
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyles />
-          <Banner />
-          <Nav activePage={activePage} />
+          <BannerAndNavWrapper>
+            <Banner />
+            <Nav activePage={activePage} />
+          </BannerAndNavWrapper>
           <main>
             <Grid>
               <PageLayout>

@@ -290,18 +290,23 @@ const SubmitForm = () => {
     );
 
   return (
-    <SubmitFormWrapper>
-      <form onSubmit={e => e.preventDefault()}>
-        {drawFields(nodes)}
-        {submittingState ? (
-          <div>Submitting...</div>
-        ) : (
-          <SubmitFormSubmitButton onClick={e => submitForm(e)}>
-            Submit To Antediluvian
-          </SubmitFormSubmitButton>
-        )}
-      </form>
-    </SubmitFormWrapper>
+    <>
+      <p>
+        <strong>Form Submissions</strong>
+      </p>
+      <SubmitFormWrapper id="submission-form">
+        <form onSubmit={e => e.preventDefault()}>
+          {drawFields(nodes)}
+          {submittingState ? (
+            <div>Submitting...</div>
+          ) : (
+            <SubmitFormSubmitButton onClick={e => submitForm(e)}>
+              Submit To Antediluvian
+            </SubmitFormSubmitButton>
+          )}
+        </form>
+      </SubmitFormWrapper>
+    </>
   );
 };
 
