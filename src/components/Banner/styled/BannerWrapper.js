@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // import theme helpers
-import { getColor, getFontWeight } from '../../../util/theme';
+import { getBreakpoint, getColor, getFontWeight } from '../../../util/theme';
 
 // import background image
 // import rlyehBg from '../../../images/rlyeh-bg.jpg';
@@ -33,9 +33,15 @@ const BannerWrapper = styled(RlyehBg)`
   */
   opacity: 1 !important;
 
-  height: 500px;
+  height: 200px;
 
-  padding: 0 0 100px 0;
+  padding: 0 0 50px 0;
+
+  @media (min-width: ${getBreakpoint('lg')}) {
+    height: 500px;
+
+    padding: 0 0 100px 0;
+  }
 
   h1,
   h2 {
@@ -44,14 +50,23 @@ const BannerWrapper = styled(RlyehBg)`
 
   h1 {
     font-family: Cinzel, serif;
-    font-size: 5rem;
-    letter-spacing: 1rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
     text-transform: uppercase;
+
+    @media (min-width: ${getBreakpoint('lg')}) {
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
   }
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 1.75rem;
     font-weight: ${getFontWeight('light')};
+
+    @media (min-width: ${getBreakpoint('lg')}) {
+      font-size: 3.5rem;
+    }
   }
 `;
 
