@@ -21,6 +21,8 @@ import {
 } from './styled';
 
 const SubmitForm = () => {
+  console.log(MAILER_SCRIPT_URL);
+
   const data = useStaticQuery(graphql`
     query GET_SUBMIT_FORM_FIELDS_QUERY {
       allSubmitFormFieldsJson {

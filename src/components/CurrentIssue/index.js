@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Document, Page } from 'react-pdf';
 
+// import styled components
+import {
+  CurrentIssueControlsWrapper,
+  CurrentIssuePageNumberWrapper,
+  CurrentIssuePagesWrapper,
+} from './styled';
+
 const CurrentIssue = () => {
   const data = useStaticQuery(graphql`
     query GET_CURRENT_ISSUE_PDF_QUERY {
@@ -29,18 +36,21 @@ const CurrentIssue = () => {
         }
         onLoadSuccess={onDocumentLoadSuccess}
       >
-        <div style={{ display: 'flex' }}>
+        <CurrentIssuePagesWrapper>
           <Page pageNumber={pageNumber} />
           <Page pageNumber={pageNumber + 1} />
-        </div>
+        </CurrentIssuePagesWrapper>
       </Document>
-      <div>
-        <span onClick={() => setPageNumber(pageNumber - 1)}>( - )</span>
-        <span onClick={() => setPageNumber(pageNumber + 1)}>( + )</span>
-      </div>
-      <p>
-        Pages {pageNumber} - {pageNumber + 1} of {numPages}
-      </p>
+
+      <CurrentIssueControlsWrapper>
+        <span onClick={() => setPageNumber(pageNumber - 1)}>&#8619;</span>
+        <span onClick={() => setPageNumber(pageNumber + 1)}>&#8620;</span>
+      </CurrentIssueControlsWrapper>
+      <CurrentIssuePageNumberWrapper>
+        <p>
+          Pages {pageNumber} - {pageNumber + 1} of {numPages}
+        </p>
+      </CurrentIssuePageNumberWrapper>
     </>
   );
 };
