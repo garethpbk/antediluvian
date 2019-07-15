@@ -27,6 +27,22 @@ const CurrentIssue = () => {
     setNumPages(numPages);
   };
 
+  const changePageNumbers = forward => {
+    if (!forward && pageNumber === 1) {
+      return null;
+    }
+
+    if (forward && pageNumber === numPages - 1) {
+      return null;
+    }
+
+    if (forward) {
+      setPageNumber(pageNumber + 2);
+    } else {
+      setPageNumber(pageNumber - 2);
+    }
+  };
+
   return (
     <>
       <Document
@@ -43,8 +59,10 @@ const CurrentIssue = () => {
       </Document>
 
       <CurrentIssueControlsWrapper>
-        <span onClick={() => setPageNumber(pageNumber - 1)}>&#8619;</span>
-        <span onClick={() => setPageNumber(pageNumber + 1)}>&#8620;</span>
+        {/* <span onClick={() => setPageNumber(pageNumber - 1)}>&#8619;</span>
+        <span onClick={() => setPageNumber(pageNumber + 1)}>&#8620;</span> */}
+        <span onClick={() => changePageNumbers(false)}>&#8619;</span>
+        <span onClick={() => changePageNumbers(true)}>&#8620;</span>
       </CurrentIssueControlsWrapper>
       <CurrentIssuePageNumberWrapper>
         <p>
