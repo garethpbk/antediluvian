@@ -12,7 +12,7 @@ import {
 const CurrentIssue = () => {
   const data = useStaticQuery(graphql`
     query GET_CURRENT_ISSUE_PDF_QUERY {
-      wordpressWpMedia(title: { eq: "adl-issue-one" }) {
+      wordpressWpMedia(title: { eq: "antediluvian-fall-2019" }) {
         localFile {
           url
         }
@@ -59,8 +59,6 @@ const CurrentIssue = () => {
       </Document>
 
       <CurrentIssueControlsWrapper>
-        {/* <span onClick={() => setPageNumber(pageNumber - 1)}>&#8619;</span>
-        <span onClick={() => setPageNumber(pageNumber + 1)}>&#8620;</span> */}
         <span onClick={() => changePageNumbers(false)}>&#8619;</span>
         <span onClick={() => changePageNumbers(true)}>&#8620;</span>
       </CurrentIssueControlsWrapper>
