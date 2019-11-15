@@ -11,10 +11,14 @@ import {
 
 const CurrentIssue = () => {
   const data = useStaticQuery(graphql`
-    query GET_CURRENT_ISSUE_PDF_QUERY {
-      wordpressWpMedia(title: { eq: "antediluvian-fall-2019" }) {
-        localFile {
-          url
+    query GET_CURRENT_ISSUE_PDF_URL_QUERY {
+      wordpressPage(slug: { eq: "current" }) {
+        acf {
+          issue_pdf {
+            url {
+              source_url
+            }
+          }
         }
       }
     }
@@ -48,7 +52,7 @@ const CurrentIssue = () => {
       <Document
         file={
           'https://cors-anywhere.herokuapp.com/' +
-          data.wordpressWpMedia.localFile.url
+          data.wordpressPage.acf.issue_pdf.url.source_url
         }
         onLoadSuccess={onDocumentLoadSuccess}
       >
